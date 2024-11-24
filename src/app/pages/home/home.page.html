@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (!uploadLoadin) {
+
+  <ion-button (click)="handleClick(cameraSource.Camera)">Camara</ion-button>
+  <ion-button (click)="handleClick(cameraSource.Photos)">Galeria</ion-button>
+
+  @if (imageUrl && imagePublicId) {
+  <ion-card>
+    <ion-card-content>
+      <img src="{{imageUrl}}" alt="Imagen desde cloudinary" />
+    </ion-card-content>
+    <ion-card-subtitle>
+      <ion-title> {{imagePublicId}} </ion-title>
+    </ion-card-subtitle>
+  </ion-card>
+  } } @else {
+  <ion-item>
+    <!-- <ion-label>Crescent</ion-label> -->
+    <ion-spinner name="crescent"></ion-spinner>
+  </ion-item>
+  }
+</ion-content>
